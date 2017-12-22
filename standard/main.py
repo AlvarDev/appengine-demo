@@ -84,7 +84,7 @@ class SQLSelectPage(webapp2.RequestHandler):
 
 #Datastore
 class Gif(ndb.Model):
-    idUser = ndb.IntegerProperty(indexed=True)
+    idUser = ndb.DateTimeProperty(auto_now_add=True, indexed=True)
     name = ndb.StringProperty(indexed=False)
     gif = ndb.StringProperty(indexed=False)
     bought = ndb.BooleanProperty(indexed=False)
@@ -92,7 +92,7 @@ class Gif(ndb.Model):
 class DatastoreInserttPage(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/plain'
-        gif = Gif(idUser=1, name="AlvarDev", gif="PS4", bought=False)
+        gif = Gif(name="AlvarDev", gif="PS4", bought=False)
         gif.put()
         self.response.write('Ok')
 
