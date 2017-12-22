@@ -1,5 +1,6 @@
 *.pyc
 lib
+standard/main.pyc
 standard/*.pyc
 flexible/*.pyc
 endpoints/*.pyc

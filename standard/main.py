@@ -1,6 +1,7 @@
 import webapp2
 import os
 import MySQLdb
+import time
 from google.appengine.ext import ndb
 from google.appengine.ext.webapp import template  # also added
 from google.appengine.api import urlfetch
@@ -84,7 +85,7 @@ class SQLSelectPage(webapp2.RequestHandler):
 
 #Datastore
 class Gif(ndb.Model):
-    idUser = ndb.DateTimeProperty(auto_now_add=True, indexed=True)
+    idUser = ndb.StringProperty(indexed=True)
     name = ndb.StringProperty(indexed=False)
     gif = ndb.StringProperty(indexed=False)
     bought = ndb.BooleanProperty(indexed=False)
@@ -92,7 +93,7 @@ class Gif(ndb.Model):
 class DatastoreInserttPage(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/plain'
-        gif = Gif(name="AlvarDev", gif="PS4", bought=False)
+        gif = Gif(idUser=str(time.time()).split('.')[0], name="AlvarDev", gif="PS4", bought=False)
         gif.put()
         self.response.write('Ok')
 
