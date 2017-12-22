@@ -1,0 +1,26 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /css
+  static_dir: css
+- url: /img
+  static_dir: img
+- url: /js
+  static_dir: js
+
+- url: /.*
+  script: main.app
+
+libraries:
+- name: MySQLdb
+  version: "latest"
+
+# [START env_variables]
+env_variables:
+    CLOUDSQL_CONNECTION_NAME: alvardevlp07:southamerica-east1:demo-lab
+    CLOUDSQL_USER: root
+    CLOUDSQL_PASSWORD: demo
+    CLOUDSQL_DB: demo
+# [END env_variables]

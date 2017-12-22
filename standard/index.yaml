@@ -1,0 +1,6 @@
+indexes:
+- kind: Gif
+  ancestor: no
+  properties:
+  - name: idUser
+    direction: desc
