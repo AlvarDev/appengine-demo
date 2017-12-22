@@ -1,0 +1,5 @@
+*.pyc
+standard/*.pyc
+flexible/*.pyc
+endpoints/*.pyc
+.DS_Store
