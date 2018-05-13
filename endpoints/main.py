@@ -52,7 +52,7 @@ class DemoApi(remote.Service):
 
     @endpoints.method(ApiRequest,ApiResponse,path='update',http_method='POST',name='update')
     def update(self, request):
-        gif_query = Gif.query(Gif.idUser >= request.idUser).order(-Gif.idUser)
+        gif_query = Gif.query(Gif.idUser == request.idUser).order(-Gif.idUser)
         gifs = gif_query.fetch(1)
         gifs[0].bought=True
         gifs[0].put()
